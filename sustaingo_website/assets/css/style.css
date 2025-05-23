@@ -1,0 +1,438 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background-color: #f7f9f8;
+  color: #333;
+  line-height: 1.6;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #2d6a4f;
+  color: white;
+  padding: 1rem 2rem;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.nav-header {
+    display: flex;
+    align-items: center;
+}
+
+nav h1 {
+  font-size: 1.8rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #b7e4c7;
+}
+
+/* Hamburger Button Styles (visible on mobile, hidden on desktop) */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 8px; /* Adjusted padding */
+  z-index: 20;
+  position: relative;
+  width: 40px;
+  flex-shrink: 0;
+  margin-left: 1rem; /* Space between title and hamburger */
+
+  /* Flexbox for centering bars */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger .bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  margin: 0 auto; /* Removed top/bottom margin */
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+  border-radius: 2px;
+}
+
+/* Add margin between bars */
+.hamburger .bar:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+/* Ensure the hamburger button is hidden on desktop */
+header .nav-header .hamburger {
+    display: none;
+}
+
+/* Ensure nav links are displayed horizontally on desktop */
+header nav ul.nav-links {
+    display: flex;
+}
+
+/* --- Mobile Navigation Styles (within Media Query) --- */
+@media (max-width: 768px) {
+
+    header {
+        padding: 1rem;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0;
+        padding: 0 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav h1 {
+         font-size: 1.4rem;
+         margin: 0;
+         padding: 0;
+         line-height: 1.2;
+    }
+
+    /* Show the hamburger button on mobile */
+    header .nav-header .hamburger {
+        display: flex; /* Use flexbox styles for alignment */
+        margin-left: 1rem;
+    }
+
+    /* Hide Navigation Links by Default on Mobile */
+    nav .nav-links {
+        display: none !important; /* Force hide when nav does NOT have 'nav-open' */
+        flex-direction: column;
+        width: 100%;
+        background-color: #2d6a4f;
+        padding: 1rem;
+        gap: 0.8rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 5;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        display: block;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+     .nav-links li:last-child a {
+        border-bottom: none;
+     }
+
+    /* State when Navigation is Open (using a class on the nav) */
+    nav.nav-open .nav-links {
+        display: flex !important; /* Force show when nav has 'nav-open' */
+    }
+
+    /* Hamburger icon animation when menu is open */
+    nav.nav-open .hamburger .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    nav.nav-open .hamburger .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    nav.nav-open .hamburger .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* --- End Mobile Navigation Styles --- */
+
+
+/* General Styles for main content area */
+main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* Removed padding and align-items that caused the white frame/centering issue */
+  /* align-items: center; */
+  /* padding: 1rem; */
+}
+
+.hero {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #d8f3dc, #b7e4c7);
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: #2d6a4f;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+/* Style for the div containing the buttons in the hero section */
+.hero .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+
+/* Button Styles (Applied to both home page buttons and form submit) */
+.btn, .btn-outline, form button[type="submit"] {
+  padding: 0.8rem 1.6rem;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  border: 2px solid #40916c;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  min-width: 200px;
+  text-align: center;
+}
+
+/* Specific margin for the submit button in the form to center it */
+form button[type="submit"] {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+
+.btn {
+  color: #40916c;
+  background-color: transparent;
+}
+
+.btn-outline {
+  color: #40916c;
+  background-color: transparent;
+}
+
+form button[type="submit"] {
+   color: white;
+   background-color: #40916c;
+}
+
+/* Hover styles applied to both */
+.btn:hover, .btn-outline:hover, form button[type="submit"]:hover {
+  background-color: #2d6a4f;
+  border-color: #2d6a4f;
+  color: white;
+}
+
+
+/* --- Form Styles --- */
+
+.form-wrapper {
+  max-width: 800px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-wrapper h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #2d6a4f;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 0;
+  background-color: #f9f9f9;
+}
+
+legend {
+  font-size: 1.2em;
+  font-weight: 700;
+  padding: 0 0.5rem;
+  color: #40916c;
+  margin-bottom: 1rem;
+  background-color: #f9f9f9;
+}
+
+form label {
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+
+fieldset label:last-child {
+    margin-bottom: 0;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="url"],
+form input[type="number"],
+form textarea,
+form select {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+fieldset > div {
+    margin-bottom: 1.2rem;
+    padding-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+fieldset > div label {
+    font-weight: normal;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+fieldset > div label input[type="checkbox"],
+fieldset > div label input[type="radio"] {
+   margin-top: 0;
+   margin-right: 0.5rem;
+   width: auto;
+   flex-shrink: 0;
+}
+
+input[type="text"][name$="_other_specify"],
+input[type="text"][name$="_other"] {
+    margin-top: 1rem;
+    margin-left: 1.2rem;
+    flex-grow: 1;
+    min-width: 150px;
+    display: block;
+    width: auto;
+    box-sizing: border-box;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus,
+form button[type="submit"]:focus {
+  outline: none;
+  border-color: #40916c;
+  box-shadow: 0 0 5px rgba(64, 145, 108, 0.5);
+}
+
+
+/* Footer Styles */
+footer {
+  background-color: #2d6a4f;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+}

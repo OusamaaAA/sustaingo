@@ -1,0 +1,8 @@
+# Flutter-specific ignores
+build/
+.dart_tool/
+.packages
+.pub/
+venv/
+coreui-free-react-admin-template/
+node_modules/

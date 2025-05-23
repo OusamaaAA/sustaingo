@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SustainGo - Vendor Application</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <header>
+        <header>
+            <nav>
+              <div class="nav-header">
+                <h1>SustainGo</h1>
+                <button class="hamburger" aria-label="Toggle navigation menu">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                </button>
+              </div>
+        
+              <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="vendor_form.html">Vendor Form</a></li>
+                <li><a href="ngo_form.html">NGO Form</a></li>
+              </ul>
+            </nav>
+          </header>
+      </header>
+  </header>
+
+  <main>
+    <div class="form-wrapper">
+      <h2>Vendor Application</h2>
+      <form action="https://formspree.io/f/xkgrjwvq" method="POST">
+
+        <fieldset>
+          <legend>🏢 1. Business Information</legend>
+          <label for="business_name">Business/Restaurant Name:</label>
+          <input type="text" id="business_name" name="business_name" required>
+
+          <label for="business_type">Business Type:</label>
+          <select id="business_type" name="business_type" required>
+            <option value="">-- Select Type --</option>
+            <option value="restaurant">Restaurant</option>
+            <option value="bakery">Bakery</option>
+            <option value="grocery">Grocery</option>
+            <option value="cafe">Café</option>
+            <option value="hotel">Hotel</option>
+            <option value="other">Other</option>
+          </select>
+          <label for="business_type_other" class="sr-only">Other Business Type:</label>
+          <input type="text" id="business_type_other" name="business_type_other" placeholder="Specify if 'Other'">
+
+
+          <label for="business_address">Business Address:</label>
+          <textarea id="business_address" name="business_address" required></textarea>
+
+          <label for="business_city">City / Region:</label>
+          <input type="text" id="business_city" name="business_city" required>
+
+          <label for="business_website">Website or Social Media Link:</label>
+          <input type="url" id="business_website" name="business_website">
+        </fieldset>
+
+        <fieldset>
+          <legend>👤 2. Contact Information</legend>
+          <label for="contact_name">Contact Person Name:</label>
+          <input type="text" id="contact_name" name="contact_name" required>
+
+          <label for="contact_role">Contact Role/Position:</label>
+          <input type="text" id="contact_role" name="contact_role">
+
+          <label for="contact_phone">Phone Number:</label>
+          <input type="tel" id="contact_phone" name="contact_phone" required>
+
+          <label for="contact_email">Email Address:</label>
+          <input type="email" id="contact_email" name="contact_email" required>
+        </fieldset>
+
+        <fieldset>
+          <legend>🍽️ 3. Food Donation Details</legend>
+
+          <label>What types of food will you donate? (Select all that apply)</label>
+          <div>
+            <label><input type="checkbox" name="food_types[]" value="baked_goods"> Baked goods</label><br>
+            <label><input type="checkbox" name="food_types[]" value="fresh_meals"> Fresh meals</label><br>
+            <label><input type="checkbox" name="food_types[]" value="packaged_items"> Packaged items</label><br>
+            <label><input type="checkbox" name="food_types[]" value="fruits_vegetables"> Fruits & vegetables</label><br>
+            <label><input type="checkbox" name="food_types[]" value="dairy_products"> Dairy products</label><br>
+            <label><input type="checkbox" name="food_types[]" value="food_types_other"> Other:</label>
+            <input type="text" name="food_types_other_specify" placeholder="Specify if 'Other'">
+          </div>
+
+          <label for="typical_quantity">Typical Quantity per Day:</label>
+          <select id="typical_quantity" name="typical_quantity" required>
+            <option value="">-- Select Quantity --</option>
+            <option value="1-3_bags">1–3 bags</option>
+            <option value="4-7_bags">4–7 bags</option>
+            <option value="8+_bags">8+ bags</option>
+            <option value="other_quantity">Other</option>
+          </select>
+          <label for="typical_quantity_other" class="sr-only">Other Quantity:</label>
+           <input type="text" id="typical_quantity_other" name="typical_quantity_other" placeholder="Specify if 'Other'">
+
+
+          <label for="pickup_time_window">Preferred Pickup Time Window (e.g., 6:00 PM – 9:00 PM):</label>
+          <input type="text" id="pickup_time_window" name="pickup_time_window" placeholder="e.g., 6:00 PM - 9:00 PM">
+
+          <label>Preferred Pickup Days:</label>
+          <div>
+            <label><input type="checkbox" name="pickup_days[]" value="monday"> Monday</label><br>
+            <label><input type="checkbox" name="pickup_days[]" value=" Tuesday"> Tuesday</label><br>
+            <label><input type="checkbox" name="pickup_days[]" value="wednesday"> Wednesday</label><br>
+            <label><input type="checkbox" name="pickup_days[]" value="thursday"> Thursday</label><br>
+            <label><input type="checkbox" name="pickup_days[]" value="friday"> Friday</label><br>
+            <label><input type="checkbox" name="pickup_days[]" value="saturday"> Saturday</label><br>
+            <label><input type="checkbox" name="pickup_days[]" value="sunday"> Sunday</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>📦 4. Storage & Safety</legend>
+
+          <label>Do you follow food safety regulations for storage & handling?</label>
+          <div>
+            <label><input type="radio" name="food_safety_compliance" value="yes" required> Yes</label>
+            <label><input type="radio" name="food_safety_compliance" value="no" required> No</label>
+          </div>
+
+          <label for="packaging_method">How do you package your donations?</label>
+          <textarea id="packaging_method" name="packaging_method" required placeholder="E.g., sealed boxes, labeled bags, compostable containers"></textarea>
+
+          <label for="special_handling">Do you require any special handling instructions? (optional)</label>
+          <textarea id="special_handling" name="special_handling" placeholder="E.g., “Keep refrigerated,” “Fragile,” etc."></textarea>
+        </fieldset>
+
+         <fieldset>
+          <legend>💬 5. Additional Notes</legend>
+          <label for="additional_notes">Any comments or special requests?</label>
+          <textarea id="additional_notes" name="additional_notes"></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>✅ 6. Agreement</legend>
+          <div>
+            <label>
+              <input type="checkbox" name="agreement_safety" value="confirmed" required>
+               I confirm that all donated items will be safe for consumption at time of pickup.
+            </label>
+          </div>
+           <div>
+            <label>
+              <input type="checkbox" name="agreement_contact_list" value="agreed" required>
+               I agree to allow SustainGo to contact me and list my business as a contributor on the platform.
+            </label>
+          </div>
+        </fieldset>
+
+        <button type="submit">Apply to Join SustainGo</button>
+
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 SustainGo. All rights reserved.</p>
+  </footer>
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>

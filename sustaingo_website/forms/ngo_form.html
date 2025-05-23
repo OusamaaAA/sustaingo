@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SustainGo - NGO Application</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <header>
+        <header>
+            <nav>
+              <div class="nav-header">
+                <h1>SustainGo</h1>
+                <button class="hamburger" aria-label="Toggle navigation menu">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                </button>
+              </div>
+        
+              <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="vendor_form.html">Vendor Form</a></li>
+                <li><a href="ngo_form.html">NGO Form</a></li>
+              </ul>
+            </nav>
+          </header>
+      </header>
+  </header>
+
+  <main>
+    <div class="form-wrapper">
+      <h2>NGO Application</h2>
+      <form action="https://formspree.io/f/xanoewpw" method="POST">
+
+        <fieldset>
+          <legend>🏢 1. NGO/Organization Information</legend>
+          <label for="org_name">Organization Name:</label>
+          <input type="text" id="org_name" name="org_name" required>
+
+          <label for="registration_number">Registration Number or Legal ID (optional):</label>
+          <input type="text" id="registration_number" name="registration_number">
+
+          <label for="ngo_type">Type of NGO:</label>
+          <select id="ngo_type" name="ngo_type" required>
+            <option value="">-- Select Type --</option>
+            <option value="charity">Charity</option>
+            <option value="refugee_support">Refugee Support</option>
+            <option value="homeless_shelter">Homeless Shelter</option>
+            <option value="religious_organization">Religious Organization</option>
+            <option value="community_kitchen">Community Kitchen</option>
+            <option value="other_ngo_type">Other</option>
+          </select>
+          <label for="ngo_type_other" class="sr-only">Other NGO Type:</label>
+          <input type="text" id="ngo_type_other" name="ngo_type_other" placeholder="Specify if 'Other'">
+
+          <label for="year_established">Year Established (optional):</label>
+          <input type="number" id="year_established" name="year_established" min="1900" max="2099" step="1" placeholder="e.g., 2015">
+
+          <label for="org_website">Website or Social Media (optional):</label>
+          <input type="url" id="org_website" name="org_website">
+        </fieldset>
+
+        <fieldset>
+          <legend>📍 2. Location & Coverage</legend>
+          <label for="head_office_address">Head Office Address:</label>
+          <textarea id="head_office_address" name="head_office_address" required></textarea>
+
+          <label for="org_city">City / Region:</label>
+          <input type="text" id="org_city" name="org_city" required>
+
+          <label for="areas_served">Areas You Serve (e.g., list of cities, regions, or governorates in Lebanon):</label>
+          <textarea id="areas_served" name="areas_served" required placeholder="e.g., Beirut, Mount Lebanon, South Governorate"></textarea>
+           </fieldset>
+
+        <fieldset>
+          <legend>👤 3. Contact Person</legend>
+          <label for="contact_full_name">Full Name:</label>
+          <input type="text" id="contact_full_name" name="contact_full_name" required>
+
+          <label for="contact_role">Role/Position in NGO:</label>
+          <input type="text" id="contact_role" name="contact_role" required>
+
+          <label for="contact_phone_ngo">Phone Number:</label>
+          <input type="tel" id="contact_phone_ngo" name="contact_phone_ngo" required>
+
+          <label for="contact_email_ngo">Email Address:</label>
+          <input type="email" id="contact_email_ngo" name="contact_email_ngo" required>
+        </fieldset>
+
+        <fieldset>
+          <legend>🍱 4. Food Distribution Details</legend>
+
+          <label for="beneficiaries_weekly">Number of Beneficiaries Served Weekly:</label>
+          <input type="number" id="beneficiaries_weekly" name="beneficiaries_weekly" min="0" required>
+
+          <label for="pickup_time_ngo">Preferred Bag Pickup Time (e.g., 3:00–6:00 PM):</label>
+          <input type="text" id="pickup_time_ngo" name="pickup_time_ngo" placeholder="e.g., 3:00 PM - 6:00 PM">
+
+          <label>Available Days for Pickup:</label>
+          <div>
+            <label><input type="checkbox" name="pickup_days_ngo[]" value="monday"> Monday</label>
+            <label><input type="checkbox" name="pickup_days_ngo[]" value="tuesday"> Tuesday</label>
+            <label><input type="checkbox" name="pickup_days_ngo[]" value="wednesday"> Wednesday</label>
+            <label><input type="checkbox" name="pickup_days_ngo[]" value="thursday"> Thursday</label>
+            <label><input type="checkbox" name="pickup_days_ngo[]" value="friday"> Friday</label>
+            <label><input type="checkbox" name="pickup_days_ngo[]" value="saturday"> Saturday</label>
+            <label><input type="checkbox" name="pickup_days_ngo[]" value="sunday"> Sunday</label>
+          </div>
+
+          <label>How will the food be distributed?</label>
+          <div>
+            <label><input type="checkbox" name="distribution_method[]" value="direct_to_families"> Directly to families</label>
+            <label><input type="checkbox" name="distribution_method[]" value="through_shelters"> Through shelters</label>
+            <label><input type="checkbox" name="distribution_method[]" value="mobile_units"> Mobile units</label>
+            <label><input type="checkbox" name="distribution_method[]" value="other_distribution"> Other:</label>
+             <input type="text" name="other_distribution_specify" placeholder="Specify if 'Other'">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>🧊 5. Storage & Transport</legend>
+
+          <label>Do you have proper food storage (e.g., fridge, coolers)?</label>
+          <div>
+            <label><input type="radio" name="proper_storage" value="yes" required> Yes</label>
+            <label><input type="radio" name="proper_storage" value="no" required> No</label>
+          </div>
+
+          <label>Do you have transportation available for pickups?</label>
+          <div>
+            <label><input type="radio" name="transportation_available" value="yes" required> Yes</label>
+            <label><input type="radio" name="transportation_available" value="no" required> No</label>
+          </div>
+
+          <label for="transportation_description">If Yes: Describe briefly (e.g., car, van, volunteers):</label>
+          <textarea id="transportation_description" name="transportation_description"></textarea>
+
+        </fieldset>
+
+         <fieldset>
+          <legend>🧾 6. Additional Info</legend>
+
+          <label>Have you worked with food recovery programs before?</label>
+           <div>
+            <label><input type="radio" name="prior_food_recovery" value="yes" required> Yes</label>
+            <label><input type="radio" name="prior_food_recovery" value="no" required> No</label>
+          </div>
+
+          <label for="prior_food_recovery_description">If Yes: Briefly describe:</label>
+          <textarea id="prior_food_recovery_description" name="prior_food_recovery_description"></textarea>
+
+          <label for="ngo_comments">Any comments or specific needs? (optional)</label>
+          <textarea id="ngo_comments" name="ngo_comments"></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>✅ 7. Agreement</legend>
+          <div>
+            <label>
+              <input type="checkbox" name="agreement_responsible_distribution" value="confirmed" required>
+               I confirm that the donated food will be distributed responsibly and not resold.
+            </label>
+          </div>
+           <div>
+            <label>
+              <input type="checkbox" name="agreement_feedback_reports" value="agreed" required>
+               I agree to provide feedback or reports upon request if required.
+            </label>
+          </div>
+        </fieldset>
+
+        <button type="submit">Apply to Join SustainGo</button>
+
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 SustainGo. All rights reserved.</p>
+  </footer>
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>

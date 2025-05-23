@@ -1,0 +1,1 @@
+web: gunicorn sustaingo_backend.wsgi
